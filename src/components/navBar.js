@@ -14,7 +14,7 @@ const navbarEvents = () => {
       });
     } else if (e.target.id === 'navbar-button-toDo') {
       $('#auth').hide();
-      $('#toDo').hide();
+      $('#toDo').show();
     } else {
       // click authentication
       $('#auth').show();
