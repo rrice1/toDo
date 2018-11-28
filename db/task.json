@@ -2,19 +2,23 @@
   "tasks":{
     "task1":{
       "task": "Walk the dog",
-      "isCompleted": false
+      "isCompleted": false,
+      "uid": "mitNy62IZ8dxffYXezcCHduZDVx2"
     },
     "task2":{
       "task": "Run the dog",
-      "isCompleted": false
+      "isCompleted": false,
+      "uid": "mitNy62IZ8dxffYXezcCHduZDVx2"
     },
     "task3":{
       "task": "Jog the dog",
-      "isCompleted": false
+      "isCompleted": false,
+      "uid": "mitNy62IZ8dxffYXezcCHduZDVx2"
     },
     "task4":{
       "task": "Canter the dog",
-      "isCompleted": false
+      "isCompleted": false,
+      "uid": "123456"
     }
   }
 }
