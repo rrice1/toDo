@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import authHelpers from '../../helpers/authHelpers';
 import taskData from '../../helpers/data/taskData';
-import initializeTaskPage from '../TasksPage/tasksPage';
+import initializeTasksPage from '../TasksPage/tasksPage';
 
 const formBuilder = (task) => {
   const form = `
@@ -36,7 +36,7 @@ const buildAddForm = () => {
 };
 
 const addNewTask = () => {
-  const newFriend = gettingTaskFromForm();
+  const newTask = gettingTaskFromForm();
   taskData.addNewTask(newTask)
     .then(() => {
       $('#add-edit-task').html('').hide();
@@ -65,7 +65,7 @@ const showEditForm = (e) => {
 };
 
 const updateTask = (e) => {
-  const updatedFriend = gettingTaskFromForm();
+  const updatedTask = gettingTaskFromForm();
   const taskId = e.target.dataset.singleEditId;
   taskData.updateTask(updatedTask, taskId)
     .then(() => {

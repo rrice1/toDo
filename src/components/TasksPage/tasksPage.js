@@ -6,10 +6,18 @@ const printSingleTask = (task) => {
   const taskString = `
   <div>
     <h1>${task.task}</h1>
+    <div class="form-check form-check-inline">
+    <label class="form-check-label" for="inlineCheckbox1">Have I Completed This?</label>
+  <input class="form-check-input is-completed-checkbox" type="checkbox" id="${task.id}" value="option1">
+</div>
     <button class="btn btn-danger delete-btn" data-delete-id=${task.id}>X</button>
+    <button class="btn btn-info edit-btn" data-edit-id=${task.id}>Edit</button>
     </div>
   `;
   $('#single-container').html(taskString);
+  if (task.isCompleted) {
+    $('.is-completed-checkbox').attr('checked', true);
+  }
 };
 
 const getSingleTask = (e) => {
@@ -50,7 +58,7 @@ const taskPage = () => {
       buildDropdown(taskArray);
     })
     .catch((error) => {
-      console.error('error in getting friends', error);
+      console.error('error in getting tasks', error);
     });
 };
 
@@ -66,10 +74,22 @@ const deleteTask = (e) => {
     });
 };
 
+const updateIsCompleted = (e) => {
+  const taskId = e.target.id;
+  const isCompleted = e.target.checked;
+  taskData.updateIsCompleted(taskId, isCompleted)
+    .then(() => {
+
+    })
+    .catch((err) => {
+      console.error('error in updating flag', err);
+    });
+};
 
 const bindEvents = () => {
   $('body').on('click', '.get-single', getSingleTask);
   $('body').on('click', '.delete-btn', deleteTask);
+  $('body').on('change', '.is-completed-checkbox', updateIsCompleted);
 };
 
 const initializeTaskPage = () => {
